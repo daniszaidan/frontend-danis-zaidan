@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { Barang, Negara, Pelabuhan } from '../types/data';
+// import { Barang, Negara, Pelabuhan } from '../types/data';
 
 export const negaraSchema = z.object({
   id_negara: z.number(),

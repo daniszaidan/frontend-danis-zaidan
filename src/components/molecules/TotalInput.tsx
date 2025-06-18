@@ -11,11 +11,11 @@ interface TotalInputProps {
   selectedBarang: Barang | null;
 }
 
-export default function TotalInput({ 
-  control, 
-  selectedBarang 
+export default function TotalInput({
+  control,
+  selectedBarang,
 }: TotalInputProps) {
-  const totalHarga = selectedBarang 
+  const totalHarga = selectedBarang
     ? hitungTotal(selectedBarang.harga, selectedBarang.diskon)
     : 0;
 
@@ -28,7 +28,9 @@ export default function TotalInput({
           id="total"
           label="Total"
           value={selectedBarang ? formatCurrency(totalHarga) : ''}
-          register={field}
+          onChange={field.onChange}
+          onBlur={field.onBlur}
+          inputRef={field.ref}
         />
       )}
     />

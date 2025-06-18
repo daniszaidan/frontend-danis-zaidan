@@ -10,9 +10,9 @@ interface DiskonInputProps {
   selectedBarang: Barang | null;
 }
 
-export default function DiskonInput({ 
-  control, 
-  selectedBarang 
+export default function DiskonInput({
+  control,
+  selectedBarang,
 }: DiskonInputProps) {
   return (
     <Controller
@@ -23,8 +23,9 @@ export default function DiskonInput({
           id="diskon"
           label="Diskon (%)"
           value={selectedBarang ? `${selectedBarang.diskon}` : ''}
-          register={field}
-          type="number"
+          onChange={field.onChange}
+          onBlur={field.onBlur}
+          inputRef={field.ref}
         />
       )}
     />

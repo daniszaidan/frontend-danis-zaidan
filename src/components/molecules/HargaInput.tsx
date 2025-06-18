@@ -24,7 +24,9 @@ export default function HargaInput({
           id="harga"
           label="Harga"
           value={selectedBarang ? formatCurrency(selectedBarang.harga) : ''}
-          register={field}
+          onChange={field.onChange}
+          onBlur={field.onBlur}
+          inputRef={field.ref}
         />
       )}
     />

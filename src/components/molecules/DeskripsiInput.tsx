@@ -10,11 +10,25 @@ interface DeskripsiInputProps {
   selectedBarang: Barang | null;
 }
 
-export default function DeskripsiInput({ 
-  control, 
-  selectedBarang 
+export default function DeskripsiInput({
+  control,
+  selectedBarang,
 }: DeskripsiInputProps) {
   return (
+    // <Controller
+    //   name="deskripsi"
+    //   control={control}
+    //   render={({ field }) => (
+    //     <ReadOnlyInput
+    //       id="deskripsi"
+    //       label="Deskripsi Barang"
+    //       value={selectedBarang?.description || ''}
+    //       register={field}
+    //       type="textarea"
+    //     />
+    //   )}
+    // />
+
     <Controller
       name="deskripsi"
       control={control}
@@ -23,7 +37,9 @@ export default function DeskripsiInput({
           id="deskripsi"
           label="Deskripsi Barang"
           value={selectedBarang?.description || ''}
-          register={field}
+          onChange={field.onChange}
+          onBlur={field.onBlur}
+          inputRef={field.ref}
           type="textarea"
         />
       )}

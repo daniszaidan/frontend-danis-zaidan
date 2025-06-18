@@ -1,7 +1,10 @@
 import axios from 'axios';
 import { Barang, Negara, Pelabuhan } from '@/utils/types/data';
 
-const API_BASE_URL = 'http://202.157.176.100:3001';
+// Gunakan URL relatif untuk menghindari masalah Mixed Content
+const API_BASE_URL = process.env.NODE_ENV === 'production'
+  ? '/api' // Gunakan proxy yang dikonfigurasi di next.config.ts
+  : 'http://202.157.176.100:3001';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
